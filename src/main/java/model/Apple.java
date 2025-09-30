@@ -1,6 +1,9 @@
 package model;
 
-public class Apple extends Food implements Discountable{
+import model.constants.Discount;
+import model.constants.Colour;
+
+public class Apple extends Food {
     String colour;
 
 
@@ -16,9 +19,9 @@ public class Apple extends Food implements Discountable{
 
     @Override
     public double getDiscount() {
-        if (colour.equalsIgnoreCase("red")) {
-            return 0.6;
+        if (colour.equalsIgnoreCase(Colour.COLOUR_RED)) {
+            return Discount.RED_APPLE_DISCOUNT;
         }
-        return super.getDiscount();
+        return Discount.DEFAULT_DISCOUNT;
     }
 }
